@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import projectOneImg from "../assets/project-one.jpg";
 import projectTwoImg from "../assets/project-two.jpg";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,9 +29,9 @@ const projects = [
 ];
 
 const links = [
-  { label: "GitHub", href: "https://github.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Email", href: "mailto:hello@example.com" },
+  { label: "GitHub", href: "https://github.com", icon: Github },
+  { label: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
+  { label: "Email", href: "mailto:hello@example.com", icon: Mail },
 ];
 
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -108,10 +109,23 @@ function Index() {
           </nav>
         </Reveal>
         <Reveal delay={400}>
-          <div className="mt-8 flex gap-6 text-sm">
-            {links.map((l) => (
-              <a key={l.label} href={l.href} target="_blank" rel="noreferrer" className="text-lg text-muted-foreground transition-colors hover:text-primary">{l.label}</a>
-            ))}
+          <div className="mt-10 flex justify-center gap-4">
+            {links.map((l) => {
+              const Icon = l.icon;
+              return (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={l.label}
+                  title={l.label}
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  <Icon size={22} />
+                </a>
+              );
+            })}
           </div>
         </Reveal>
       </header>
@@ -168,6 +182,26 @@ function Index() {
           <a href="mailto:hello@example.com" className="inline-block rounded-full border border-primary px-8 py-3 text-xl text-primary transition-colors hover:bg-accent">Contact me</a>
         </Reveal>
         <Reveal delay={100}>
+          <div className="mt-10 flex justify-center gap-4">
+            {links.map((l) => {
+              const Icon = l.icon;
+              return (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={l.label}
+                  title={l.label}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  <Icon size={20} />
+                </a>
+              );
+            })}
+          </div>
+        </Reveal>
+        <Reveal delay={200}>
           <p className="mt-8">© {new Date().getFullYear()} Aggelos Tsi</p>
         </Reveal>
       </footer>
