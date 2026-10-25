@@ -63,25 +63,25 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.11 0 0);
-  --foreground: oklch(0.95 0 0);
-  --card: oklch(0.15 0 0);
-  --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.15 0 0);
-  --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.95 0 0);
-  --primary-foreground: oklch(0.11 0 0);
-  --secondary: oklch(0.2 0 0);
-  --secondary-foreground: oklch(0.95 0 0);
-  --muted: oklch(0.2 0 0);
-  --muted-foreground: oklch(0.66 0 0);
-  --accent: oklch(0.2 0 0);
-  --accent-foreground: oklch(0.95 0 0);
+  --background: oklch(0.975 0.012 95);
+  --foreground: oklch(0.33 0.035 162);
+  --card: oklch(0.951 0.016 95);
+  --card-foreground: oklch(0.33 0.035 162);
+  --popover: oklch(0.97 0.014 95);
+  --popover-foreground: oklch(0.33 0.035 162);
+  --primary: oklch(0.44 0.062 166);
+  --primary-foreground: oklch(0.97 0.01 95);
+  --secondary: oklch(0.912 0.028 150);
+  --secondary-foreground: oklch(0.33 0.035 162);
+  --muted: oklch(0.912 0.028 150);
+  --muted-foreground: oklch(0.53 0.038 158);
+  --accent: oklch(0.893 0.042 155);
+  --accent-foreground: oklch(0.3 0.05 165);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.25 0 0);
-  --input: oklch(0.25 0 0);
-  --ring: oklch(0.6 0 0);
+  --border: oklch(0.862 0.022 130);
+  --input: oklch(0.862 0.022 130);
+  --ring: oklch(0.6 0.06 165);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -139,7 +139,7 @@
 
   body {
     font-family: 'Outfit', system-ui, sans-serif;
-    background-image: radial-gradient(ellipse at top, oklch(0.17 0 0), transparent 70%);
+    background-image: radial-gradient(ellipse at top, oklch(0.93 0.035 152), transparent 70%);
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
