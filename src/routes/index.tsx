@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import projectOneImg from "../assets/project-one.jpg";
+import projectTwoImg from "../assets/project-two.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,8 +23,8 @@ const experience = [
 ];
 
 const projects = [
-  { title: "Project One", text: "A short description of what this project does and why it matters.", tags: ["Web", "AI"] },
-  { title: "Project Two", text: "Another project you are proud of, explained in one sentence.", tags: ["Open Source"] },
+  { title: "Project One", text: "A short description of what this project does and why it matters.", tags: ["Web", "AI"], image: projectOneImg },
+  { title: "Project Two", text: "Another project you are proud of, explained in one sentence.", tags: ["Open Source"], image: projectTwoImg },
 ];
 
 const links = [
@@ -141,10 +143,20 @@ function Index() {
         <div className="space-y-6">
           {projects.map((p) => (
             <Reveal key={p.title}>
-              <div className="rounded-xl border border-border p-8 transition-colors hover:border-primary">
-                <h3 className="text-2xl font-semibold">{p.title}</h3>
-                <p className="mt-3 text-xl text-muted-foreground">{p.text}</p>
-                <Tags tags={p.tags} />
+              <div className="overflow-hidden rounded-xl border border-border transition-colors hover:border-primary">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  loading="lazy"
+                  width={1200}
+                  height={675}
+                  className="aspect-[16/9] w-full object-cover"
+                />
+                <div className="p-8">
+                  <h3 className="text-2xl font-semibold">{p.title}</h3>
+                  <p className="mt-3 text-xl text-muted-foreground">{p.text}</p>
+                  <Tags tags={p.tags} />
+                </div>
               </div>
             </Reveal>
           ))}
