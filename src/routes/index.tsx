@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import projectOneImg from "../assets/project-one.jpg";
+import projectTwoImg from "../assets/project-two.jpg";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,14 +24,14 @@ const experience = [
 ];
 
 const projects = [
-  { title: "Project One", text: "A short description of what this project does and why it matters.", tags: ["Web", "AI"] },
-  { title: "Project Two", text: "Another project you are proud of, explained in one sentence.", tags: ["Open Source"] },
+  { title: "Project One", text: "A short description of what this project does and why it matters.", tags: ["Web", "AI"], image: projectOneImg },
+  { title: "Project Two", text: "Another project you are proud of, explained in one sentence.", tags: ["Open Source"], image: projectTwoImg },
 ];
 
 const links = [
-  { label: "GitHub", href: "https://github.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Email", href: "mailto:hello@example.com" },
+  { label: "GitHub", href: "https://github.com", icon: Github },
+  { label: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
+  { label: "Email", href: "mailto:hello@example.com", icon: Mail },
 ];
 
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -66,7 +69,7 @@ function Tags({ tags }: { tags: string[] }) {
   return (
     <div className="mt-4 flex flex-wrap justify-center gap-2">
       {tags.map((t) => (
-        <span key={t} className="rounded-full bg-accent px-4 py-1.5 text-base font-medium text-primary">{t}</span>
+        <span key={t} className="rounded-full bg-accent px-3 py-1 text-sm font-medium text-primary">{t}</span>
       ))}
     </div>
   );
@@ -106,10 +109,23 @@ function Index() {
           </nav>
         </Reveal>
         <Reveal delay={400}>
-          <div className="mt-8 flex gap-6 text-sm">
-            {links.map((l) => (
-              <a key={l.label} href={l.href} target="_blank" rel="noreferrer" className="text-lg text-muted-foreground transition-colors hover:text-primary">{l.label}</a>
-            ))}
+          <div className="mt-10 flex justify-center gap-4">
+            {links.map((l) => {
+              const Icon = l.icon;
+              return (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={l.label}
+                  title={l.label}
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  <Icon size={22} />
+                </a>
+              );
+            })}
           </div>
         </Reveal>
       </header>
@@ -138,13 +154,23 @@ function Index() {
       </Section>
 
       <Section id="projects" title="Projects">
-        <div className="space-y-6">
+        <div className="mx-auto max-w-xl space-y-6">
           {projects.map((p) => (
             <Reveal key={p.title}>
-              <div className="rounded-xl border border-border p-8 transition-colors hover:border-primary">
-                <h3 className="text-2xl font-semibold">{p.title}</h3>
-                <p className="mt-3 text-xl text-muted-foreground">{p.text}</p>
-                <Tags tags={p.tags} />
+              <div className="overflow-hidden rounded-xl border border-border transition-colors hover:border-primary">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  loading="lazy"
+                  width={1200}
+                  height={675}
+                  className="h-40 w-full object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold">{p.title}</h3>
+                  <p className="mt-2 text-base text-muted-foreground">{p.text}</p>
+                  <Tags tags={p.tags} />
+                </div>
               </div>
             </Reveal>
           ))}
@@ -156,6 +182,26 @@ function Index() {
           <a href="mailto:hello@example.com" className="inline-block rounded-full border border-primary px-8 py-3 text-xl text-primary transition-colors hover:bg-accent">Contact me</a>
         </Reveal>
         <Reveal delay={100}>
+          <div className="mt-10 flex justify-center gap-4">
+            {links.map((l) => {
+              const Icon = l.icon;
+              return (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={l.label}
+                  title={l.label}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  <Icon size={20} />
+                </a>
+              );
+            })}
+          </div>
+        </Reveal>
+        <Reveal delay={200}>
           <p className="mt-8">© {new Date().getFullYear()} Aggelos Tsi</p>
         </Reveal>
       </footer>
