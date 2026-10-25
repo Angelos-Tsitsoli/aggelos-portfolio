@@ -69,7 +69,7 @@ function Tags({ tags }: { tags: string[] }) {
   return (
     <div className="mt-4 flex flex-wrap justify-center gap-2">
       {tags.map((t) => (
-        <span key={t} className="rounded-full bg-accent px-4 py-1.5 text-base font-medium text-primary">{t}</span>
+        <span key={t} className="rounded-full bg-accent px-3 py-1 text-sm font-medium text-primary">{t}</span>
       ))}
     </div>
   );
@@ -154,7 +154,7 @@ function Index() {
       </Section>
 
       <Section id="projects" title="Projects">
-        <div className="space-y-6">
+        <div className="mx-auto max-w-xl space-y-6">
           {projects.map((p) => (
             <Reveal key={p.title}>
               <div className="overflow-hidden rounded-xl border border-border transition-colors hover:border-primary">
@@ -164,11 +164,11 @@ function Index() {
                   loading="lazy"
                   width={1200}
                   height={675}
-                  className="aspect-[16/9] w-full object-cover"
+                  className="h-40 w-full object-cover"
                 />
-                <div className="p-8">
-                  <h3 className="text-2xl font-semibold">{p.title}</h3>
-                  <p className="mt-3 text-xl text-muted-foreground">{p.text}</p>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold">{p.title}</h3>
+                  <p className="mt-2 text-base text-muted-foreground">{p.text}</p>
                   <Tags tags={p.tags} />
                 </div>
               </div>
