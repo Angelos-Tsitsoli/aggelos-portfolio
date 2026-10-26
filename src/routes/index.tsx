@@ -227,7 +227,8 @@ function Index() {
         <Reveal>
           <p className="text-sm uppercase tracking-widest text-muted-foreground">2020 — 2025 · Athens</p>
           <h3 className="mt-3 text-2xl font-semibold">Bachelor's Degree in Informatics and Telecommunications</h3>
-          <p className="mt-2 text-xl text-muted-foreground">University Name</p>
+          <p className="mt-2 text-xl text-muted-foreground">Department of Informatics and Telecommunications</p>
+          <p className="mt-1 text-lg text-muted-foreground">National Kapodistrian University of Athens</p>
           <p className="mt-4 text-lg text-muted-foreground">Relevant coursework:</p>
           <Tags tags={["Artificial Intelligence I", "Data Mining Techniques", "Database Design and Use", "Database Systems Implementation"]} />
         </Reveal>
