@@ -19,8 +19,38 @@ export const Route = createFileRoute("/")({
 });
 
 const experience = [
-  { date: "2025 — Present", title: "Software Engineer · Company", text: "Building web products end-to-end with a focus on performance and clean UX.", tags: ["React", "TypeScript"] },
-  { date: "2023 — 2025", title: "Frontend Developer · Studio", text: "Shipped interfaces for startups and clients in fast iteration cycles.", tags: ["UI", "Design Systems"] },
+  {
+    date: "Feb 2025 — Feb 2026", title: "Software Engineer · Gloman S.A.", place: "Athens",
+    points: [
+      "Developed and maintained frontend and backend for the SportFM website (HTML, CSS, JavaScript, Java Servlets, JSP, JSTL, JDBC).",
+      "Designed and enhanced the internal SportFM CMS used by authors and editors — dynamic SQL queries, database operations and editorial workflows.",
+      "Integrated OpenAI APIs into the CMS to build a chatbot that helps editors write SEO-friendly articles, improve headlines and get content suggestions.",
+      "Built and deployed a separate staging website on an Ubuntu VM (Proxmox, Apache Tomcat) so changes could be tested before going live.",
+      "Configured Jenkins CI/CD to automatically rebuild and deploy the website after Git commits via SSH.",
+      "Containerized the application with Docker and created GitHub Actions workflows and technical documentation.",
+    ],
+    tags: ["Java", "JSP", "SQL", "OpenAI", "Jenkins", "Docker"],
+  },
+  {
+    date: "Jun 2024 — Dec 2024", title: "Software Developer Intern · Netcompany–Intrasoft", place: "Athens",
+    points: [
+      "Developed frontend features for a web application using Angular, JavaScript and React.",
+      "Worked with REST APIs and Swagger for API documentation and testing.",
+      "Used Figma to review UI designs and support frontend implementation.",
+      "Investigated and resolved software defects through development tickets and debugging.",
+      "Collaborated with the team using GitHub, GitLab and Azure-based tools.",
+    ],
+    tags: ["Angular", "React", "REST APIs", "Swagger", "Figma"],
+  },
+];
+
+const skills = [
+  { group: "Languages", items: ["Java", "JavaScript", "SQL", "HTML", "CSS", "Groovy"] },
+  { group: "Frameworks & Technologies", items: ["Java Servlets", "JSP", "JSTL", "JDBC", "Angular", "React", "REST APIs"] },
+  { group: "Databases", items: ["Microsoft SQL Server"] },
+  { group: "Tools & Platforms", items: ["Git", "GitHub", "GitLab", "Jenkins", "Docker", "Apache Tomcat", "Jetty", "Maven", "Swagger", "Figma"] },
+  { group: "Infrastructure & DevOps", items: ["Linux (Ubuntu)", "Proxmox", "CI/CD", "GitHub Actions", "Virtual Machines"] },
+  { group: "Concepts", items: ["OOP", "Backend Development", "Frontend Development", "API Integration", "Database Management", "Software Testing", "AI Integration"] },
 ];
 
 const projects = [
@@ -28,7 +58,7 @@ const projects = [
   { title: "Project Two", text: "Another project you are proud of, explained in one sentence.", tags: ["Open Source"], image: projectTwoImg },
 ];
 
-const roles = ["Software Developer", "Software Engineer", "Frontend Developer"];
+const roles = ["Software Engineer", "Full-Stack Developer", "Java & Web Developer"];
 
 function Typewriter() {
   const [text, setText] = useState("");
@@ -133,12 +163,12 @@ function Index() {
         </Reveal>
         <Reveal delay={200}>
           <p className="mt-8 max-w-2xl text-xl leading-relaxed text-muted-foreground">
-            I build clean, fast and accessible products from idea to launch.
+            Software engineer from Athens building web apps, CMS tools and CI/CD pipelines.
           </p>
         </Reveal>
         <Reveal delay={300}>
-          <nav className="mt-12 flex gap-12 text-base font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-            {["about", "experience", "projects"].map((s) => (
+          <nav className="mt-12 flex flex-wrap justify-center gap-x-10 gap-y-4 text-base font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            {["about", "experience", "education", "skills", "projects"].map((s) => (
               <a key={s} href={`#${s}`} className="transition-colors hover:text-primary">{s}</a>
             ))}
           </nav>
@@ -168,9 +198,9 @@ function Index() {
       <Section id="about" title="About">
         <Reveal>
           <p className="text-xl leading-relaxed text-muted-foreground">
-            Hi, I'm Aggelos. I enjoy turning ideas into real products that people use. I care about
-            good design, solid engineering and shipping quickly. When I'm not coding, I'm learning
-            something new.
+            Hi, I'm Aggelos, a software engineer based in Athens with a Bachelor's in Informatics and
+            Telecommunications. I work across the stack — from Java backends and SQL databases to Angular
+            and React frontends — and enjoy automating deployments and integrating AI into real products.
           </p>
         </Reveal>
       </Section>
@@ -181,8 +211,32 @@ function Index() {
             <Reveal key={e.title}>
               <p className="text-sm uppercase tracking-widest text-muted-foreground">{e.date}</p>
               <h3 className="mt-3 text-2xl font-semibold">{e.title}</h3>
-              <p className="mt-3 text-xl text-muted-foreground">{e.text}</p>
+              <p className="mt-1 text-muted-foreground">{e.place}</p>
+              <ul className="mx-auto mt-5 max-w-2xl list-disc space-y-2 pl-5 text-left text-lg text-muted-foreground">
+                {e.points.map((pt) => <li key={pt}>{pt}</li>)}
+              </ul>
               <Tags tags={e.tags} />
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="education" title="Education">
+        <Reveal>
+          <p className="text-sm uppercase tracking-widest text-muted-foreground">2020 — 2025 · Athens</p>
+          <h3 className="mt-3 text-2xl font-semibold">Bachelor's Degree in Informatics and Telecommunications</h3>
+          <p className="mt-2 text-xl text-muted-foreground">University Name</p>
+          <p className="mt-4 text-lg text-muted-foreground">Relevant coursework:</p>
+          <Tags tags={["Artificial Intelligence I", "Data Mining Techniques", "Database Design and Use", "Database Systems Implementation"]} />
+        </Reveal>
+      </Section>
+
+      <Section id="skills" title="Skills">
+        <div className="space-y-10">
+          {skills.map((g) => (
+            <Reveal key={g.group}>
+              <h3 className="text-lg font-semibold">{g.group}</h3>
+              <Tags tags={g.items} />
             </Reveal>
           ))}
         </div>
