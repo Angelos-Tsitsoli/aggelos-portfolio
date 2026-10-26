@@ -65,9 +65,9 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
   );
 }
 
-function Tags({ tags }: { tags: string[] }) {
+function Tags({ tags, align = "center" }: { tags: string[]; align?: "center" | "left" }) {
   return (
-    <div className="mt-4 flex flex-wrap justify-center gap-2">
+    <div className={`mt-4 flex flex-wrap gap-2 ${align === "center" ? "justify-center" : "justify-start"}`}>
       {tags.map((t) => (
         <span key={t} className="rounded-full bg-accent px-3 py-1 text-sm font-medium text-primary">{t}</span>
       ))}
@@ -157,19 +157,21 @@ function Index() {
         <div className="mx-auto max-w-xl space-y-6">
           {projects.map((p) => (
             <Reveal key={p.title}>
-              <div className="overflow-hidden rounded-xl border border-border transition-colors hover:border-primary">
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  loading="lazy"
-                  width={1200}
-                  height={675}
-                  className="h-40 w-full object-cover"
-                />
-                <div className="p-6">
+              <div className="group mx-auto flex max-w-xl flex-col overflow-hidden rounded-xl bg-card shadow-sm transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-2 hover:shadow-xl sm:flex-row">
+                <div className="shrink-0 sm:w-2/5">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    loading="lazy"
+                    width={1200}
+                    height={675}
+                    className="h-40 w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 sm:h-full"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col justify-center p-6">
                   <h3 className="text-xl font-semibold">{p.title}</h3>
                   <p className="mt-2 text-base text-muted-foreground">{p.text}</p>
-                  <Tags tags={p.tags} />
+                  <Tags tags={p.tags} align="left" />
                 </div>
               </div>
             </Reveal>
