@@ -28,6 +28,41 @@ const projects = [
   { title: "Project Two", text: "Another project you are proud of, explained in one sentence.", tags: ["Open Source"], image: projectTwoImg },
 ];
 
+const roles = ["Software Developer", "Software Engineer", "Frontend Developer"];
+
+function Typewriter() {
+  const [text, setText] = useState("");
+  const [index, setIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setText(roles[0] ?? "");
+      return;
+    }
+    const word = roles[index % roles.length] ?? "";
+    const done = !deleting && text.length === word.length;
+    const empty = deleting && text.length === 0;
+    const delay = done ? 1700 : empty ? 350 : deleting ? 45 : 95;
+    const timer = setTimeout(() => {
+      if (done) setDeleting(true);
+      else if (empty) {
+        setDeleting(false);
+        setIndex((i) => i + 1);
+      } else if (deleting) setText(word.slice(0, text.length - 1));
+      else setText(word.slice(0, text.length + 1));
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [text, index, deleting]);
+
+  return (
+    <p className="mt-4 min-h-[2rem] text-xl text-primary">
+      {text}
+      <span className="caret" aria-hidden="true" />
+    </p>
+  );
+}
+
 const links = [
   { label: "GitHub", href: "https://github.com", icon: Github },
   { label: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
@@ -94,7 +129,7 @@ function Index() {
           <h1 className="text-7xl font-bold tracking-tight sm:text-8xl">Aggelos Tsi</h1>
         </Reveal>
         <Reveal delay={100}>
-          <p className="mt-4 text-xl text-primary">Software Developer</p>
+          <Typewriter />
         </Reveal>
         <Reveal delay={200}>
           <p className="mt-8 max-w-2xl text-xl leading-relaxed text-muted-foreground">
