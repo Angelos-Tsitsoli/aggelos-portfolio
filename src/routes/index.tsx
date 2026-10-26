@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import projectOneImg from "../assets/project-one.jpg";
-import projectTwoImg from "../assets/project-two.jpg";
+// Project cover images — kept for when the Projects section is re-enabled.
+// import projectOneImg from "../assets/project-one.jpg";
+// import projectTwoImg from "../assets/project-two.jpg";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -53,10 +54,11 @@ const skills = [
   { group: "Concepts", items: ["OOP", "Backend Development", "Frontend Development", "API Integration", "Database Management", "Software Testing", "AI Integration"] },
 ];
 
-const projects = [
-  { title: "Project One", text: "A short description of what this project does and why it matters.", tags: ["Web", "AI"], image: projectOneImg },
-  { title: "Project Two", text: "Another project you are proud of, explained in one sentence.", tags: ["Open Source"], image: projectTwoImg },
-];
+// Projects data — commented out for now, kept for future use.
+// const projects = [
+//   { title: "Project One", text: "A short description of what this project does and why it matters.", tags: ["Web", "AI"], image: projectOneImg },
+//   { title: "Project Two", text: "Another project you are proud of, explained in one sentence.", tags: ["Open Source"], image: projectTwoImg },
+// ];
 
 const roles = ["Software Engineer", "Full-Stack Developer", "Java & Web Developer"];
 
@@ -168,7 +170,7 @@ function Index() {
         </Reveal>
         <Reveal delay={300}>
           <nav className="mt-12 flex flex-wrap justify-center gap-x-10 gap-y-4 text-base font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-            {["about", "experience", "education", "skills", "projects"].map((s) => (
+            {["about", "experience", "education", "skills", /* "projects", */].map((s) => (
               <a key={s} href={`#${s}`} className="transition-colors hover:text-primary">{s}</a>
             ))}
           </nav>
