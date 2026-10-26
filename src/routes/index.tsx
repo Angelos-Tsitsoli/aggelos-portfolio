@@ -8,10 +8,10 @@ import { Github, Linkedin, Mail } from "lucide-react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aggelos Tsi — Portfolio" },
-      { name: "description", content: "Portfolio of Aggelos Tsi: about, experience and projects." },
-      { property: "og:title", content: "Aggelos Tsi — Portfolio" },
-      { property: "og:description", content: "Portfolio of Aggelos Tsi: about, experience and projects." },
+      { title: "Aggelos Tsitsoli — Portfolio" },
+      { name: "description", content: "Portfolio of Aggelos Tsitsoli: about, experience and projects." },
+      { property: "og:title", content: "Aggelos Tsitsoli — Portfolio" },
+      { property: "og:description", content: "Portfolio of Aggelos Tsitsoli: about, experience and projects." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -158,7 +158,7 @@ function Index() {
     <main className="mx-auto max-w-4xl px-6 text-center">
       <header className="flex min-h-[85vh] flex-col items-center justify-center py-20">
         <Reveal>
-          <h1 className="text-7xl font-bold tracking-tight sm:text-8xl">Aggelos Tsi</h1>
+          <h1 className="text-7xl font-bold tracking-tight sm:text-8xl">Aggelos Tsitsoli</h1>
         </Reveal>
         <Reveal delay={100}>
           <Typewriter />
@@ -298,7 +298,7 @@ function Index() {
           </div>
         </Reveal>
         <Reveal delay={200}>
-          <p className="mt-8">© {new Date().getFullYear()} Aggelos Tsi</p>
+          <p className="mt-8">© {new Date().getFullYear()} Aggelos Tsitsoli</p>
         </Reveal>
       </footer>
     </main>
