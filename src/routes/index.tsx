@@ -244,6 +244,7 @@ function Index() {
         </div>
       </Section>
 
+      {/* Projects section — commented out for future use.
       <Section id="projects" title="Projects">
         <div className="mx-auto max-w-xl space-y-6">
           {projects.map((p) => (
@@ -269,6 +270,7 @@ function Index() {
           ))}
         </div>
       </Section>
+      */}
 
       <footer className="py-16 text-lg text-muted-foreground">
         <Reveal>
