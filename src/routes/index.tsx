@@ -96,9 +96,9 @@ function Typewriter() {
 }
 
 const links = [
-  { label: "GitHub", href: "https://github.com", icon: Github },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
-  { label: "Email", href: "mailto:hello@example.com", icon: Mail },
+  { label: "GitHub", href: "https://github.com/Angelos-Tsitsoli", icon: Github },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/aggelos-tsitsoli-586b03360/", icon: Linkedin },
+  { label: "Email", href: "mailto:aggelostsitsoli@gmail.com", icon: Mail },
 ];
 
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -275,7 +275,7 @@ function Index() {
 
       <footer className="py-16 text-lg text-muted-foreground">
         <Reveal>
-          <a href="mailto:hello@example.com" className="inline-block rounded-full border border-primary px-8 py-3 text-xl text-primary transition-colors hover:bg-accent">Contact me</a>
+          <a href="mailto:aggelostsitsoli@gmail.com" className="inline-block rounded-full border border-primary px-8 py-3 text-xl text-primary transition-colors hover:bg-accent">Contact me</a>
         </Reveal>
         <Reveal delay={100}>
           <div className="mt-10 flex justify-center gap-4">
