@@ -8,12 +8,15 @@ import { Github, Linkedin, Mail } from "lucide-react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aggelos Tsitsoli — Portfolio" },
+      { title: "Aggelos Tsitsoli Portfolio" },
       { name: "description", content: "Portfolio of Aggelos Tsitsoli: about, experience and projects." },
       { property: "og:title", content: "Aggelos Tsitsoli — Portfolio" },
       { property: "og:description", content: "Portfolio of Aggelos Tsitsoli: about, experience and projects." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+    ],
+    links: [
+      { rel: "icon", href: "/ATlogo.svg", type: "image/svg+xml" },
     ],
   }),
   component: Index,
