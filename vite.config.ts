@@ -14,6 +14,6 @@ export default defineConfig({
     },
   },
   vite: {
-    base: "/aggelos-portfolio/",
+    base: "/",
   },
 });
