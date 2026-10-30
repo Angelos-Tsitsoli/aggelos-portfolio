@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary" },
     ],
     links: [
-      { rel: "icon", href: "/ATlogo.svg", type: "image/svg+xml" },
+      { rel: "icon", href: "/ATlogo.png", type: "image/png" },
     ],
   }),
   component: Index,
